@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.2.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+       
+      <!-- 配置springMVC的相关操作 -->
+      <!-- 使用注解处理 -->
+      <mvc:annotation-driven/>
+      <!-- 默认的servlet实现 -->
+      <mvc:default-servlet-handler/>
+      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		 <property name="prefix" value="/pages/"></property>
+		 <property name="suffix" value=".jsp"></property>
+	  </bean>
+	  <!-- 配置拦截器 -->
+	  <mvc:interceptors>  
+		    <!-- 使用 bean 定义一个 Interceptor，直接定义在 mvc:interceptors 下面的 Interceptor 将拦截所有的请求 -->  
+		    <bean class="com.zhong.common.aop.MyInterceptor"/>  
+		   <!--  <mvc:interceptor> 
+		        <mvc:mapping path="/login/*.action"/>
+		        定义在 mvc:interceptor 下面的 Interceptor，表示对特定的请求进行拦截  
+		        <bean class="com.zhong.common.aop.MyInterceptor"/>  
+		    </mvc:interceptor>   -->
+	  </mvc:interceptors>  
+       
+       
+       
+       
+</beans>

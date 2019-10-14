@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module type="WEB" name="zhongDemo" id="zhongDemo" context-root="/zhongDemo" j2ee-spec="1.4" archive="zhongDemo.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp"/>
+  </attributes>
+</project-module>
